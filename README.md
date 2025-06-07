@@ -12,6 +12,16 @@ Este projeto é um serviço de agenda de contatos que oferece uma API para geren
 └─ README.md            # Documentação do projeto (agora na raiz do repositório)
 ```
 
+## Diagrama de Arquitetura
+
+```mermaid
+flowchart TD
+   A[Navegador / Swagger UI] -- Requisições HTTP --> B[Contact Service API<br/>(FastAPI)]
+   B -- CRUD de contatos --> C[(Banco de Dados)]
+   C -- Dados persistidos --> B
+   B -- Respostas HTTP --> A
+```
+
 ## Requisitos
 
 - Python 3.13.3 ou superior
