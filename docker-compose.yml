@@ -1,4 +1,3 @@
-version: '3'
 services:
   contact_service:
     build:
