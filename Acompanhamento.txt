@@ -1,0 +1,23 @@
+
+07/06/2025
+
+Primeira versão do serviço - Agenda de Contatos REST
+
+    * Opcional: expor api em um gateway GraphQL
+
+    Inclusão de um contato  
+    * Fazer validação da inclusão
+    Consulta de um contato (OK)
+    Listagem de contatos cadastrados (OK)
+
+    Contato
+        Nome
+        Lista de números de telefone e tipo ( movel, fixo ou comercial)
+        categoria do contato (familiar, pessoal ou comercial)  
+        
+        * Ajustar as categorias para enumeradores
+
+    Utilizar o Swagger para demonstrar que funciona (OK)
+        * Ajustar swagger para inclusão ser parametrizavel
+
+    * Ver com o professor como sera o armazenamento, banco de dados ou memoria
