@@ -4,6 +4,9 @@ WORKDIR /app
 
 COPY ./src /app/src
 
+# Defina o PYTHONPATH para o Python reconhecer src como módulo raiz
+ENV PYTHONPATH=/app/src
+
 RUN pip install fastapi uvicorn
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
