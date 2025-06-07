@@ -1,8 +1,8 @@
 version: '3'
 services:
-  agenda:
-    build: .
+  contatos_service:
+    build: ./contatos_service
     ports:
       - "5000:5000"
     volumes:
-      - .:/app
+      - ./contatos_service:/app

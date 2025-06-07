@@ -5,16 +5,16 @@ res = requests.post('http://localhost:5000/contatos', json={
     "nome": "João da Silva",
     "categoria": "pessoal",
     "telefones": [
-        {"numero": "999999999", "tipo": "móvel"},
-        {"numero": "333333333", "tipo": "fixo"}
+        {"numero": "51988887777", "tipo": "móvel"},
+        {"numero": "5133332222", "tipo": "fixo"}
     ]
 })
-print("Criar:", res.json())
+print("Criado:", res.json())
 
 # Listar contatos
 res = requests.get('http://localhost:5000/contatos')
-print("Listar:", res.json())
+print("Todos:", res.json())
 
-# Buscar por ID
+# Consultar contato específico
 res = requests.get('http://localhost:5000/contatos/1')
-print("Buscar:", res.json())
+print("Contato 1:", res.json())
