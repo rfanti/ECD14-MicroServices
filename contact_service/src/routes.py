@@ -6,6 +6,10 @@ router = APIRouter()
 
 contatos_db: Dict[str, Contato] = {}
 
+@router.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
 @router.post("/contato")
 def criar_contato(contato: Contato):
     if contato.nome in contatos_db:
@@ -22,3 +26,5 @@ def consultar_contato(nome: str):
 @router.get("/contatos")
 def listar_contatos():
     return list(contatos_db.values())
+
+
