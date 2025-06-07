@@ -16,10 +16,10 @@ Este projeto é um serviço de agenda de contatos que oferece uma API para geren
 
 ```mermaid
 flowchart TD
-   A[Navegador / Swagger UI] -->|Requisições HTTP| B[Contact Service API (FastAPI)]
-   B -->|CRUD de contatos| C[(Banco de Dados)]
-   C -->|Dados persistidos| B
-   B -->|Respostas HTTP| A
+   A[Navegador / Swagger UI] -- Requisições HTTP --> B[Contact Service API FastAPI]
+   B -- CRUD de contatos --> C[(Banco de Dados)]
+   C -- Dados persistidos --> B
+   B -- Respostas HTTP --> A
 ```
 
 ## Requisitos
