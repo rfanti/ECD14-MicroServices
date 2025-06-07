@@ -31,3 +31,7 @@ def consultar_contato(nome: str):
 @app.get("/contatos")
 def listar_contatos():
     return list(contatos_db.values())
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}

@@ -1,8 +1,12 @@
 version: '3'
 services:
-  contatos_service:
-    build: ./contatos_service
+  contact_service:
+    build:
+      context: ./contact_service
+      dockerfile: Dockerfile
+    image: contact_service:latest
+    container_name: contact_service
     ports:
-      - "5000:5000"
+      - "8000:8000"
     volumes:
-      - ./contatos_service:/app
+      - ./contact_service/src:/app/src
