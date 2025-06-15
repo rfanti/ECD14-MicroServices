@@ -1,5 +1,8 @@
 from fastapi import FastAPI
-from routes import router
+from routes import router as rest_router
+from schema_graphql import Query, Mutation
+from strawberry.fastapi import GraphQLRouter
+import strawberry
 
 app = FastAPI(
     title="API de Contatos",
@@ -7,4 +10,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
-app.include_router(router)
+# REST
+app.include_router(rest_router)
+
+# GraphQL
+schema = strawberry.Schema(query=Query, mutation=Mutation)
+graphql_app = GraphQLRouter(schema)
+app.include_router(graphql_app, prefix="/graphql")

@@ -21,3 +21,39 @@ Primeira versão do serviço - Agenda de Contatos REST
         * Ajustar swagger para inclusão ser parametrizavel
 
     * Ver com o professor como sera o armazenamento, banco de dados ou memoria
+
+15/06/2025
+
+    OK - Fazer validação da inclusão
+    OK - Ajustar as categorias para enumeradores
+    OK - Ajustar swagger para inclusão ser parametrizavel
+    OK - Opcional: expor api em um gateway GraphQL
+
+    Exemplos comandos GraphQL 
+
+    Incluir contato 
+
+        mutation {
+            criarContato(
+                input: {
+                nome: "João Silva",
+                categoria: familiar,
+                telefones: [
+                    { numero: "11999999999", tipo: fixo }
+                ]
+                }
+            )
+        }
+
+    Listar contatos
+
+        query {
+            listarContatos {
+                nome
+                categoria
+                telefones {
+                numero
+                tipo
+                }
+            }
+        }

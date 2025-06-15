@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Form
 from typing import Dict, List
-from models import Contato
+from models import Contato, CategoriaContato, Telefone, TipoTelefone
 
 
 router = APIRouter(tags=["Contatos"])
@@ -22,8 +22,13 @@ def hello_world():
     """
     return {"message": "Hello, World!"}
 
-@router.post("/contato")
-def criar_contato(contato: Contato):
+@router.post("/contato", response_model=dict)
+def criar_contato_form(
+    nome: str = Form(...),
+    numero: str = Form(...),
+    tipo: TipoTelefone = Form(...),
+    categoria: CategoriaContato = Form(...)
+):
     """
     Cria um novo contato.
 
@@ -39,12 +44,16 @@ def criar_contato(contato: Contato):
     - 400: Contato já existe.
         - Exemplo de resposta: {"detail": "Contato já existe"}
     """
-    if contato.nome in contatos_db:
+    if nome in contatos_db:
         raise HTTPException(status_code=400, detail="Contato já existe")
+    
+    telefone = Telefone(numero=numero, tipo=tipo)
+    contato = Contato(nome=nome, telefones=[telefone], categoria=categoria)
+
     contatos_db[contato.nome] = contato
     return {"message": "Contato criado com sucesso"}
 
-@router.get("/contato/{nome}")
+@router.get("/contato/{nome}", response_model=Contato)
 def consultar_contato(nome: str):
     """
     Consulta um contato pelo nome.
@@ -69,7 +78,7 @@ def consultar_contato(nome: str):
         raise HTTPException(status_code=404, detail="Contato não encontrado")
     return contatos_db[nome]
 
-@router.get("/contatos")
+@router.get("/contatos", response_model=List[Contato])
 def listar_contatos():
     """
     Lista todos os contatos cadastrados.
