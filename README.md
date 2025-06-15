@@ -7,9 +7,11 @@ Este projeto é um serviço de agenda de contatos que oferece uma API para geren
 ```
 ├─ contact_service
 ├── src
-│    ├─ main.py          # Ponto de entrada da aplicação
-│    ├─ models.py        # Modelos do serviço
-│    └─ routes.py        # Rotas dos endpoints
+│    ├─ main.py            # Ponto de entrada da aplicação
+│    ├─ models.py          # Modelos do serviço
+│    └─ routes.py          # Rotas dos endpoints
+│    └─ graphql_gateway.py # Gateway GraphQL
+│    └─ schema_graphql.py  # Schema GraphQL  
 ├── Dockerfile           # Instruções para construir a imagem Docker
 ├─ README.md              # Documentação do projeto (agora na raiz do repositório)
 └─ docker-compose.yml     # Responsavel por orquestrar os serviços
